@@ -239,14 +239,6 @@ namespace eureka_blocks {
     }
 
 
-
-
-
-
-
-
-
-
     //% color="#228b22"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_光ｾﾝｻｰ"
     //% limit.min=0 limit.max=100
     export function decideLight(limit: number, syoudo: kurasa): boolean {
@@ -501,85 +493,6 @@ namespace eureka_blocks {
 
     }
 
-
-
-
-
-
-    //% color="#8b008b" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="7_ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ"
-    export function eureka_mdriver(channel: eureka_channel, mode: moter_d) {
-        led.enable(false);
-        switch (channel) {
-            case eureka_channel.A:
-                if (mode == moter_d.正転) {
-                    pins.digitalWritePin(DigitalPin.P3, 1);
-                    pins.digitalWritePin(DigitalPin.P4, 0);
-                }
-                if (mode == moter_d.逆転) {
-                    pins.digitalWritePin(DigitalPin.P3, 0);
-                    pins.digitalWritePin(DigitalPin.P4, 1);
-
-                }
-                if (mode == moter_d.停止) {
-                    pins.digitalWritePin(DigitalPin.P3, 0);
-                    pins.digitalWritePin(DigitalPin.P4, 0);
-                }
-                return
-            case eureka_channel.B:
-                if (mode == moter_d.正転) {
-                    pins.digitalWritePin(DigitalPin.P6, 1);
-                    pins.digitalWritePin(DigitalPin.P7, 0);
-                }
-                if (mode == moter_d.逆転) {
-                    pins.digitalWritePin(DigitalPin.P6, 0);
-                    pins.digitalWritePin(DigitalPin.P7, 1);
-                }
-                if (mode == moter_d.停止) {
-                    pins.digitalWritePin(DigitalPin.P6, 0);
-                    pins.digitalWritePin(DigitalPin.P7, 0);
-                }
-                return
-        }
-
-    }
-
-    //% color="#8b008b" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel_AB| 動き|%mode| 出力|%power|" group="7_ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ"
-    //% power.min=0 power.max=1023
-    export function eureka_ana_mdriver(channel_AB: eureka_channel, mode: moter_d, power: number) {
-        led.enable(false);
-        switch (channel_AB) {
-            case eureka_channel.A:
-                if (mode == moter_d.正転) {
-                    pins.analogWritePin(AnalogPin.P3, power);
-                    pins.digitalWritePin(DigitalPin.P4, 0);
-                }
-                if (mode == moter_d.逆転) {
-                    pins.digitalWritePin(DigitalPin.P3, 0);
-                    pins.analogWritePin(AnalogPin.P4, power);
-                }
-                if (mode == moter_d.停止) {
-                    pins.digitalWritePin(DigitalPin.P3, 0);
-                    pins.digitalWritePin(DigitalPin.P4, 0);
-                }
-                return
-            case eureka_channel.B:
-                if (mode == moter_d.正転) {
-                    pins.analogWritePin(AnalogPin.P6, power);
-                    pins.digitalWritePin(DigitalPin.P7, 0);
-                }
-                if (mode == moter_d.逆転) {
-                    pins.digitalWritePin(DigitalPin.P6, 0);
-                    pins.analogWritePin(AnalogPin.P7, power);
-                }
-                if (mode == moter_d.停止) {
-                    pins.digitalWritePin(DigitalPin.P6, 0);
-                    pins.digitalWritePin(DigitalPin.P7, 0);
-                }
-                return
-        }
-
-    }
-
     //% color="#483d8b" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="8_外部制御ﾘﾚｰ"
     export function eureka_relay(mode: onoff) {
         if (mode == onoff.ON) {
@@ -594,9 +507,6 @@ namespace eureka_blocks {
     export function eureka_relay_2(syuturyoku: number) {
         return pins.analogWritePin(AnalogPin.P15, syuturyoku);
     }
-
-
-
 
 }
 
