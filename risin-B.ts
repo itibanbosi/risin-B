@@ -101,7 +101,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#4741f1" weight=89 blockId=neopixel_blue block="iːo青信号 点灯|%mode|" group="1 iːoネオピクセル"
+    //% color="#4741f1" weight=89 blockId=neopixel_blue block="iːo青信号 点灯|%mode|" group="3 iːoネオピクセル"
     export function neopixel_blue_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -118,7 +118,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#ffa800" weight=86 blockId=neopixel_yellow block="iːo黄信号 点灯|%mode|" group="1 iːoネオピクセル"
+    //% color="#ffa800" weight=86 blockId=neopixel_yellow block="iːo黄信号 点灯|%mode|" group="3 iːoネオピクセル"
     export function neopixel_yellow_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -135,7 +135,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#ff4940" weight=84 blockId=neopixel_red block="iːo赤信号 点灯|%mode|" group="1 iːoネオピクセル"
+    //% color="#ff4940" weight=84 blockId=neopixel_red block="iːo赤信号 点灯|%mode|" group="3 iːoネオピクセル"
     export function neopixel_red_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -152,7 +152,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#20b2aa" weight=82 blockId=neopixel_select block="ﾌﾙｶﾗｰLED |%neo_color| 色で |%neo_number|個つける" group="1 iːoネオピクセル"
+    //% color="#20b2aa" weight=82 blockId=neopixel_select block="ﾌﾙｶﾗｰLED |%neo_color| 色で |%neo_number|個つける" group="3 iːoネオピクセル"
     //% neo_number.min=0 neo_number.max=3
     export function neopixel_select_block(neo_color: neoLED_color, neo_number: number) {
         for (let n = 0; n < 2; n++) {
@@ -222,7 +222,7 @@ namespace eureka_blocks {
                 break;
         }
     }
-    //% color="#20b2aa" weight=81 blockId=neopixel_reinbow block="にじ色にする" group="1 iːoネオピクセル"
+    //% color="#20b2aa" weight=81 blockId=neopixel_reinbow block="にじ色にする" group="3 iːoネオピクセル"
     export function neopixel_rainbow() {
         io_neo.showRainbow(1, 180)
     }
@@ -230,7 +230,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#20b2aa" weight=80 blockId=neopixel_erace block="ﾌﾙｶﾗｰLEDを全部消す" group="1 iːoネオピクセル"
+    //% color="#20b2aa" weight=80 blockId=neopixel_erace block="ﾌﾙｶﾗｰLEDを全部消す" group="3 iːoネオピクセル"
     export function neopixel_erace_block() {
         for (let n = 0; n < 3; n++) {
             io_neo.setPixelColor(n, neopixel.colors(NeoPixelColors.Black))
@@ -239,7 +239,7 @@ namespace eureka_blocks {
     }
 
 
-    //% color="#228b22"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_光ｾﾝｻｰ"
+    //% color="#228b22"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="4_光ｾﾝｻｰ"
     //% limit.min=0 limit.max=100
     export function decideLight(limit: number, syoudo: kurasa): boolean {
         switch (syoudo) {
@@ -259,13 +259,13 @@ namespace eureka_blocks {
     }
 
 
-    //% color="#228b22"  weight=80 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_光ｾﾝｻｰ"
+    //% color="#228b22"  weight=80 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="4_光ｾﾝｻｰ"
     export function eureka_denkitemp(): number {
         return Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100);
     }
 
 
-    //% color="#228b22"  weight=82 blockId=eureka_denkiLED block="光ｾﾝｻの値を表示する" group="3_光ｾﾝｻｰ"
+    //% color="#228b22"  weight=82 blockId=eureka_denkiLED block="光ｾﾝｻの値を表示する" group="4_光ｾﾝｻｰ"
     export function eureka_denkiLED() {
         basic.showNumber(Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100));
     }
@@ -274,7 +274,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#daa520" weight=77 block="人が動いたら" group="4_人感ｾﾝｻｰ"
+    //% color="#daa520" weight=77 block="人が動いたら" group="5_人感ｾﾝｻｰ"
     export function humanDetection(): boolean {
         pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
         if (pins.digitalReadPin(DigitalPin.P16) == 1) {
@@ -284,29 +284,18 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#daa520"  weight=75 blockId=eureka_denkihuman block="人感ｾﾝｻ値" group="4_人感ｾﾝｻｰ"
+    //% color="#daa520"  weight=75 blockId=eureka_denkihuman block="人感ｾﾝｻ値" group="5_人感ｾﾝｻｰ"
     export function eureka_denkihuman(): number {
         pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
         return pins.digitalReadPin(DigitalPin.P16);
     }
 
-    //% color="#daa520"  weight=79 blockId=eureka_denkihuman_disp block="人感ｾﾝｻの値を表示する" group="4_人感ｾﾝｻｰ"
+    //% color="#daa520"  weight=79 blockId=eureka_denkihuman_disp block="人感ｾﾝｻの値を表示する" group="5_人感ｾﾝｻｰ"
     export function eureka_denkihumandisp() {
         basic.showNumber(pins.digitalReadPin(DigitalPin.P16));
     }
 
 
-
-
-    //% color="#a9a9a9" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="5_白LED"
-    export function eureka_denkiwhite(mode: onoff) {
-
-        if (mode == onoff.ON) {
-            return pins.digitalWritePin(DigitalPin.P15, 1);
-        } else {
-            return pins.digitalWritePin(DigitalPin.P15, 0);
-        }
-    }
 
     //% color="#ff1493"  weight=68 blockId=eureka_temperature1 block="気温" group="6_気象センサ"
     export function eureka_temperature1(): number {
@@ -353,51 +342,13 @@ namespace eureka_blocks {
         basic.showNumber(Math.round(BMP280.pressure() / 100));
     }
 
-    //% color="#ff3d03" weight=53 blockId=auto_led_off block="ﾏｲｸﾛﾋﾞｯﾄのLEDを |%Matrix_LED| にする" group="7_ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ"
-    export function auto_led_off(Matrix_LED: LED_onoff) {
-        switch (Matrix_LED) {
-            case LED_onoff.無効:
-                led.enable(false);
-                break;
-            case LED_onoff.有効:
-                led.enable(true);
-        }
-    }
-
-    //% color="#4169e1" weight=26 blockId=eureka_O2kousei block="酸素センサー校正" group="酸素センサー"
-    export function eureka_O2kousei() {
-        kousei_A = pins.analogReadPin(AnalogPin.P2);
-
-    }
-    //% color="#4169e1" weight=26 blockId=eureka_O2LED block="酸素濃度をmicro:bitへ表示" group="酸素センサー"
-    export function eureka_O2LED() {
-
-        let O2_0 = Math.round(pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95 * 10) / 10
-        if (O2_0 >= 5 && O2_0 <= 25) {
-            basic.showString(convertToText("" + O2_0 + "% "));
-        }
-        else {
-            basic.showString("ER")
-        }
-    }
-
-    //% color="#4169e1" weight=26 blockId=eureka_O2serial block="酸素濃度をシリアル出力" group="酸素センサー"
-    export function eureka_O2serial() {
-        basic.pause(100);
-
-        serial.writeLine(convertToText(Math.round(pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95 * 100) / 100));
-    }
-
-    //% color="#4169e1"  weight=24 blockId=eureka_O2disp block="酸素濃度" group="酸素センサー"
-    export function eureka_O2disp(): number {
-        return pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95;
-    }
 
 
 
 
 
-    //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ " group="B Borad[距離センサー]"
+
+    //% color="#2a2aba" weight=30 blockId=sonar_ping block="7 超音波きょりｾﾝｻ " group="7 距離センサー"
     export function ping(): number {
         let d1 = 0;
         let d2 = 0;
@@ -422,7 +373,7 @@ namespace eureka_blocks {
     }
 
 
-    //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="B Borad[距離センサー]"
+    //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="7 距離センサー"
     export function sonar_ping_2() {
         basic.showNumber(eureka_blocks.ping())
     }
@@ -431,7 +382,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#2a2aba" weight=27 blockId=sonar_ping_3 block="きょりが |%limit| cmより長い" group="B Borad[距離センサー]"
+    //% color="#2a2aba" weight=27 blockId=sonar_ping_3 block="きょりが |%limit| cmより長い" group="7 距離センサー"
     //% limit.min=5 limit.max=50
     export function sonar_ping_3(limit: number): boolean {
         let d1 = 0;
@@ -463,7 +414,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="B Borad[距離センサー]"
+    //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="7 距離センサー"
     //% limit.min=5 limit.max=50
     export function sonar_ping_4(limit: number): boolean {
         let d1 = 0;
@@ -493,7 +444,40 @@ namespace eureka_blocks {
 
     }
 
-    //% color="#483d8b" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="8_外部制御ﾘﾚｰ"
+    //% color="#4169e1" weight=26 blockId=eureka_O2LED block="酸素濃度をmicro:bitへ表示" group="8 酸素センサー"
+    export function eureka_O2LED() {
+
+        let O2_0 = Math.round(pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95 * 10) / 10
+        if (O2_0 >= 5 && O2_0 <= 25) {
+            basic.showString(convertToText("" + O2_0 + "% "));
+        }
+        else {
+            basic.showString("ER")
+        }
+    }
+
+    //% color="#4169e1" weight=26 blockId=eureka_O2kousei block="酸素センサー校正" group="8 酸素センサー"
+    export function eureka_O2kousei() {
+        kousei_A = pins.analogReadPin(AnalogPin.P2);
+
+    }
+
+
+
+    //% color="#4169e1" weight=26 blockId=eureka_O2serial block="酸素濃度をシリアル出力" group="8 酸素センサー"
+    export function eureka_O2serial() {
+        basic.pause(100);
+
+        serial.writeLine(convertToText(Math.round(pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95 * 100) / 100));
+    }
+
+    //% color="#4169e1"  weight=24 blockId=eureka_O2disp block="酸素濃度" group="8 酸素センサー"
+    export function eureka_O2disp(): number {
+        return pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95;
+    }
+
+
+    //% color="#483d8b" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="9_外部制御ﾘﾚｰ"
     export function eureka_relay(mode: onoff) {
         if (mode == onoff.ON) {
             return pins.digitalWritePin(DigitalPin.P15, 1);
@@ -502,7 +486,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#483d8b" weight=56 blockId=eureka_relay_2 block="FETﾘﾚｰ(ｱﾅﾛｸﾞ出力) |%limit| |%syuturyoku|" group="8_外部制御ﾘﾚｰ"
+    //% color="#483d8b" weight=56 blockId=eureka_relay_2 block="FETﾘﾚｰ(ｱﾅﾛｸﾞ出力) |%limit| |%syuturyoku|" group="9_外部制御ﾘﾚｰ"
     //% syuturyoku.min=0 syuturyoku.max=1023
     export function eureka_relay_2(syuturyoku: number) {
         return pins.analogWritePin(AnalogPin.P15, syuturyoku);
