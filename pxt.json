@@ -5,12 +5,15 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "neopixel": "github:Microsoft/pxt-neopixel#v0.7.3",
+        "BMP280": "github:makecode-extensions/bmp280#v1.1.0"
     },
     "files": [
         "README.md",
         "main.blocks",
-        "main.ts"
+        "main.ts",
+        "risin-B.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -23,5 +26,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
