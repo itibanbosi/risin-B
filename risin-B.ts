@@ -1,4 +1,4 @@
-/* Ver1.0 rika_board_B*/
+/* 2022/2/4  Ver1.1 rika_board_B*/
 
 enum eureka_channel {
     A,
