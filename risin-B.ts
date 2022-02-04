@@ -101,7 +101,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#4741f1" weight=89 blockId=neopixel_blue block="iːo青信号 点灯|%mode|" group="3 ネオピクセル"
+    //% color="#4741f1" weight=89 blockId=neopixel_blue block="青信号 点灯|%mode|" group="3 ネオピクセル"
     export function neopixel_blue_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -118,7 +118,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#ffa800" weight=86 blockId=neopixel_yellow block="iːo黄信号 点灯|%mode|" group="3 ネオピクセル"
+    //% color="#ffa800" weight=86 blockId=neopixel_yellow block="黄信号 点灯|%mode|" group="3 ネオピクセル"
     export function neopixel_yellow_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -135,7 +135,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#ff4940" weight=84 blockId=neopixel_red block="iːo赤信号 点灯|%mode|" group="3 ネオピクセル"
+    //% color="#ff4940" weight=84 blockId=neopixel_red block="赤信号 点灯|%mode|" group="3 ネオピクセル"
     export function neopixel_red_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
