@@ -101,7 +101,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#4741f1" weight=89 blockId=neopixel_blue block="iːo青信号 点灯|%mode|" group="3 iːoネオピクセル"
+    //% color="#4741f1" weight=89 blockId=neopixel_blue block="iːo青信号 点灯|%mode|" group="3 ネオピクセル"
     export function neopixel_blue_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -118,7 +118,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#ffa800" weight=86 blockId=neopixel_yellow block="iːo黄信号 点灯|%mode|" group="3 iːoネオピクセル"
+    //% color="#ffa800" weight=86 blockId=neopixel_yellow block="iːo黄信号 点灯|%mode|" group="3 ネオピクセル"
     export function neopixel_yellow_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -135,7 +135,7 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#ff4940" weight=84 blockId=neopixel_red block="iːo赤信号 点灯|%mode|" group="3 iːoネオピクセル"
+    //% color="#ff4940" weight=84 blockId=neopixel_red block="iːo赤信号 点灯|%mode|" group="3 ネオピクセル"
     export function neopixel_red_block(mode: onoff) {
         switch (mode) {
             case onoff.ON:
@@ -152,10 +152,10 @@ namespace eureka_blocks {
         }
     }
 
-    //% color="#20b2aa" weight=82 blockId=neopixel_select block="ﾌﾙｶﾗｰLED |%neo_color| 色で |%neo_number|個つける" group="3 iːoネオピクセル"
+    //% color="#20b2aa" weight=82 blockId=neopixel_select block="ﾌﾙｶﾗｰLED |%neo_color| 色で |%neo_number|個つける" group="3 ネオピクセル"
     //% neo_number.min=0 neo_number.max=3
     export function neopixel_select_block(neo_color: neoLED_color, neo_number: number) {
-        for (let n = 0; n < 2; n++) {
+        for (let n = 0; n <= 2; n++) {
             io_neo.setPixelColor(n, neopixel.colors(NeoPixelColors.Black))
         }
         io_neo.show()
@@ -222,7 +222,7 @@ namespace eureka_blocks {
                 break;
         }
     }
-    //% color="#20b2aa" weight=81 blockId=neopixel_reinbow block="にじ色にする" group="3 iːoネオピクセル"
+    //% color="#20b2aa" weight=81 blockId=neopixel_reinbow block="にじ色にする" group="3 ネオピクセル"
     export function neopixel_rainbow() {
         io_neo.showRainbow(1, 180)
     }
@@ -230,7 +230,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#20b2aa" weight=80 blockId=neopixel_erace block="ﾌﾙｶﾗｰLEDを全部消す" group="3 iːoネオピクセル"
+    //% color="#20b2aa" weight=80 blockId=neopixel_erace block="ﾌﾙｶﾗｰLEDを全部消す" group="3 ネオピクセル"
     export function neopixel_erace_block() {
         for (let n = 0; n < 3; n++) {
             io_neo.setPixelColor(n, neopixel.colors(NeoPixelColors.Black))
